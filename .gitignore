@@ -3,3 +3,5 @@
 /*.xml
 !pom.xml
 !.gitignore
+!kaufhaus.xsd
+!kaufhaus2.xml

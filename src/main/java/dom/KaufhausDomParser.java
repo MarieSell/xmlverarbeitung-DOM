@@ -1,6 +1,7 @@
 package dom;
 
 import java.io.IOException;
+import java.io.InputStream;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -16,9 +17,9 @@ public class KaufhausDomParser {
 	public static void main(String[] args) {
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		System.out.println("PersNr. \t Name ");
-		try {
+		try (InputStream in = KaufhausDomParser.class.getResourceAsStream("/xmlFiles/kaufhaus2.xml")) {
 			DocumentBuilder builder = factory.newDocumentBuilder();
-			Document doc = builder.parse("kaufhaus2.xml");
+			Document doc = builder.parse(in);
 			NodeList abtLeiterList = doc.getElementsByTagName("abteilungsleiter");
 
 			// print PersNr und AbteilungsleiterName
