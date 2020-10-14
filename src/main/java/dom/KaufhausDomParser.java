@@ -1,4 +1,4 @@
-package dom.parser;
+package dom;
 
 import java.io.IOException;
 
@@ -20,7 +20,7 @@ public class KaufhausDomParser {
 			DocumentBuilder builder = factory.newDocumentBuilder();
 			Document doc = builder.parse("kaufhaus2.xml");
 			NodeList abtLeiterList = doc.getElementsByTagName("abteilungsleiter");
-			
+
 			// print PersNr und AbteilungsleiterName
 			for (int i = 0; i < abtLeiterList.getLength(); i++) {
 				Node abtLeiterNode = abtLeiterList.item(i);
@@ -31,12 +31,12 @@ public class KaufhausDomParser {
 					System.out.println(id + "\t\t " + abtLeiterName);
 				}
 			}
-			
+
 			// print AbteilungsName und Gesamtzahl Artikel einer Abteilung
 			System.out.println("\n\nAnzahl \t\t Artikel");
 			for (int i = 0; i < abtLeiterList.getLength(); i++) {
 				Node artikelNode = abtLeiterList.item(i).getNextSibling();
-				
+
 				if (artikelNode.getNodeType() == Node.ELEMENT_NODE) {
 					Element artikel = (Element) artikelNode;
 					String anzahl = artikel.getAttribute("anzahl");
@@ -44,7 +44,7 @@ public class KaufhausDomParser {
 					System.out.println(anzahl + ":\t\t " + artikelName);
 				}
 			}
-			
+
 		} catch (ParserConfigurationException e) {
 			e.printStackTrace();
 		} catch (SAXException e) {
