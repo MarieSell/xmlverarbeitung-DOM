@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kaufhaus xmlns="http://www.deutscherv.de/sample/kaufhaus"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.deutscherv.de/sample/kaufhaus kaufhaus.xsd ">
+
+	<filiale>
+		<abteilung>
+			<abteilungsleiter persNr="1234">
+				Kirchner
+			</abteilungsleiter>
+			<artikelname anzahl="22">
+				Luftballon
+			</artikelname>
+		</abteilung>
+		<abteilung>
+			<abteilungsleiter persNr="1235">
+				Werner
+			</abteilungsleiter>
+			<artikelname anzahl="22">
+				Wohnen
+			</artikelname>
+		</abteilung>
+	</filiale>
+
+</kaufhaus>
