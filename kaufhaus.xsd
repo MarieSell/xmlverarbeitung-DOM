@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema
+	targetNamespace="http://www.deutscherv.de/sample/kaufhaus"
+	xmlns="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="http://www.example.org/kaufhaus"
+	xmlns:k="http://www.deutscherv.de/sample/kaufhaus"
+	elementFormDefault="qualified">
+
+	<element name="kaufhaus" type="k:kaufhaus">
+		
+	</element>
+
+	<complexType name="kaufhaus">
+		<sequence>
+			<element name="filiale" type="k:filiale" maxOccurs="unbounded" minOccurs="1"></element>
+		</sequence>
+	</complexType>
+
+
+	<complexType name="filiale">
+		<sequence>
+			<element name="abteilung" type="k:abteilung" maxOccurs="unbounded"></element>
+		</sequence>
+	</complexType>
+	
+
+    <complexType name="abteilung">
+    	<sequence>
+    		<element name="abteilungsleiter"
+    			type="k:abteilungsleiter" maxOccurs="1" minOccurs="1">
+    		</element>
+    		<element name="artikelname" type="k:artikelname" maxOccurs="unbounded" minOccurs="0"></element>
+    	</sequence>
+    </complexType>
+    
+
+    <complexType name="abteilungsleiter">
+    	<simpleContent>
+    		<extension base="string">
+    			<attribute name="persNr" type="int"></attribute>
+    		</extension>
+    	</simpleContent>
+    </complexType>
+
+    <complexType name="artikelname">
+    	<simpleContent>
+    		<extension base="string">
+    			<attribute name="anzahl">
+    				<simpleType>
+    					<restriction base="int">
+    						<minExclusive value="0"></minExclusive>
+    					</restriction>
+    				</simpleType>
+    			</attribute>
+    		</extension>
+    	</simpleContent>
+    </complexType>
+
+
+
+</schema>
